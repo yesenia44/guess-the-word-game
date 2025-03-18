@@ -17,10 +17,23 @@ const hiddenButton = document.querySelector(".play-again");
 
 const word = "magnolia";
 
-const letter = function () {
-    wordInProgress.innerText = ●;
-    const symbol = ["m", "a", "g", "n", "o", "l", "i", "a"];
-    console.log(symbol.join(""));
-
+const letter = function (word) { // creating a function
+    const placeholders = []; // create an array to place the letters 
+    for(const character of word) { // for of loop to loop each word
+        console.log(character) // console log the words, character
+        placeholders.push("●"); // the push function pushes the circle symbol to represent each letter in magnolia
+    }
+    wordInProgress.innerText = placeholders.join(""); // 
 }
 letter(word);
+
+
+button.addEventListener("click", function (e) {
+    e.preventDefault();
+    const input = textInput.value
+    console.log(input);
+    textInput.value = "";
+    
+
+}
+);

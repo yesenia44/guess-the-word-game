@@ -33,7 +33,18 @@ button.addEventListener("click", function (e) {
     const input = textInput.value
     console.log(input);
     textInput.value = "";
-    
 
 }
 );
+const verify = function (input) {
+    const acceptedLetter = /[a-zA-Z]/
+    if(input.length = "") {
+        console.log("Please, input a letter")
+    }else if(input.lentgh > 1) {
+        console.log("Please input one letter")
+    } else if(!input.match(acceptedLetter)) {
+        console.log("You have to input a letter from A-Z")
+    }else{
+        return input;
+    }
+};

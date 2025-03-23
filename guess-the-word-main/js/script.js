@@ -16,6 +16,8 @@ const message = document.querySelector(".message");
 const hiddenButton = document.querySelector(".play-again");
 
 const word = "magnolia";
+// player guesses
+const guessedLetters = [];
 
 const letter = function (word) { // creating a function
     const placeholders = []; // create an array to place the letters 
@@ -23,28 +25,51 @@ const letter = function (word) { // creating a function
         console.log(character) // console log the words, character
         placeholders.push("●"); // the push function pushes the circle symbol to represent each letter in magnolia
     }
-    wordInProgress.innerText = placeholders.join(""); // 
+    wordInProgress.innerText = placeholders.join(""); 
 }
 letter(word);
 
 
 button.addEventListener("click", function (e) {
     e.preventDefault();
-    const input = textInput.value
-    console.log(input);
-    textInput.value = "";
+    // clear message
+    message.innerText = "";
+    // input value
+    const input = textInput.value;
+    //console.log(input);
+    // call function and save result
+    const validLetter = verify(input)
+    // console log result
+    //console.log(validLetter)
 
-}
-);
+    if (validLetter) {
+        makeGuess(input)
+    }
+
+
+    textInput.value= "";
+});
+
+//function to verify input
 const verify = function (input) {
-    const acceptedLetter = /[a-zA-Z]/
-    if(input.length = "") {
-        console.log("Please, input a letter")
-    }else if(input.lentgh > 1) {
-        console.log("Please input one letter")
-    } else if(!input.match(acceptedLetter)) {
-        console.log("You have to input a letter from A-Z")
+    const acceptedLetter = /[a-zA-Z]/ //makes sure its only a letter
+    if(input.length === 0) { // if it is empty, then it displays a message stating to input a letter
+        message.innerText = "Please, input a letter"
+    }else if(input.length > 1) { // if there is more than one letter, a message will display stating to enter one letter
+        message.innerText = "Please input one letter"
+    } else if(!input.match(acceptedLetter)) { // if it is not a letter, then a mesage will display to input a letter from A-Z
+        message.innerText = "You have to input a letter from A-Z"
     }else{
         return input;
     }
 };
+const makeGuess = function (input) {
+    input = input.toUpperCase(); // converts all letters to uppercase
+    if(guessedLetters.includes(input)) { // conditional statement. If letters includes the same letters a message pops out
+        message.innerText = "You already input the same letter. Try again."
+    }else{
+        guessedLetters.push(input) // adds letters to the array
+        console.log(guessedLetters); // console logs the letters
+    }
+    
+}

@@ -70,6 +70,15 @@ const makeGuess = function (input) {
     }else{
         guessedLetters.push(input) // adds letters to the array
         console.log(guessedLetters); // console logs the letters
+        showLetters()
     }
     
-}
+} 
+const showLetters = function () {
+    list.innerHTML = "";
+    for(const character of guessedLetters) {
+    const listItem = document.createElement("li")
+    listItem.innerText = character;
+    list.append(listItem);
+    }
+};

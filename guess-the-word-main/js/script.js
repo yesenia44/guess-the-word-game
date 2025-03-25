@@ -71,14 +71,25 @@ const makeGuess = function (input) {
         guessedLetters.push(input) // adds letters to the array
         console.log(guessedLetters); // console logs the letters
         showLetters()
+        showWordInProgress(guessedLetters)
     }
     
 } 
 const showLetters = function () {
     list.innerHTML = "";
     for(const character of guessedLetters) {
-    const listItem = document.createElement("li")
-    listItem.innerText = character;
-    list.append(listItem);
+        const listItem = document.createElement("li")
+        listItem.innerText = character;
+        list.append(listItem);
     }
 };
+const showWordInProgress = function (guessedLetters) {
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    console.log(wordArray)
+    const showWord = [];
+    
+
+        
+    
+}

@@ -88,7 +88,7 @@ const showWordInProgress = function (guessedLetters) {
     console.log("wordUpper", wordUpper);
     const wordArray = wordUpper.split("");
     console.log("wordArray",wordArray)
-    const showWord = [];
+    const showWord = [];        
     console.log("showWord",showWord);
     for(const character of wordArray) {
         console.log("character", character);
@@ -100,10 +100,14 @@ const showWordInProgress = function (guessedLetters) {
     console.log("showWord", showWord)
     wordInProgress.innerText = showWord.join("");
     console.log("wordInProgress", wordInProgress);
+    verifyWin();
 }
 const verifyWin = function () {
-    if()
+    if(word.toUpperCase() === wordInProgress.innerText )
+   { message.classList.add("win");
+     message.innerHTML = '<p class="highlight">You guessed correct the word! Congrats!</p>'
 
+   } 
 }
 
     

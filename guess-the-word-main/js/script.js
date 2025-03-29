@@ -85,11 +85,29 @@ const showLetters = function () {
 };
 const showWordInProgress = function (guessedLetters) {
     const wordUpper = word.toUpperCase();
+    console.log("wordUpper", wordUpper);
     const wordArray = wordUpper.split("");
-    console.log(wordArray)
+    console.log("wordArray",wordArray)
     const showWord = [];
+    console.log("showWord",showWord);
+    for(const character of wordArray) {
+        console.log("character", character);
+        if(guessedLetters.includes(character)) {
+            showWord.push(character.toUpperCase());
+        }else{showWord.push("●");}
+       
+    } 
+    console.log("showWord", showWord)
+    wordInProgress.innerText = showWord.join("");
+    console.log("wordInProgress", wordInProgress);
+}
+const verifyWin = function () {
+    if()
+
+}
+
     
 
         
     
-}
+
